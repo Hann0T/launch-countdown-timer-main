@@ -1,0 +1,142 @@
+:root {
+    --Grayish-blue: hsl(237, 18%, 59%);
+    --Soft-red: hsl(345, 95%, 68%);
+    --White: hsl(0, 0%, 100%);
+    --Dark-desaturated-blue: hsl(236, 21%, 26%);
+    --Very-dark-blue: hsl(235, 16%, 14%);
+    --Very-dark-mostly-black-blue: hsl(234, 17%, 12%);
+}
+
+@keyframes flip-card {
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Red Hat Text", sans-serif;
+    color: white;
+}
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+ul {
+    padding: 0;
+    margin: 0;
+}
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    background-image: url(../images/bg-stars.svg),
+        url(../images/pattern-hills.svg);
+    background-color: var(--Very-dark-blue);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.main-header {
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+.countdown {
+    width: 100%;
+}
+.countdown__text {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 50px 30px;
+    width: 50%;
+    font-size: 3em;
+    color: var(--Soft-red);
+}
+.card {
+    position: relative;
+    box-sizing: border-box;
+    padding: 0.5em 0.25em;
+    margin: 0 5px;
+    background-color: var(--Dark-desaturated-blue);
+    border-radius: 6px;
+}
+.card::before,
+.card::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: var(--Very-dark-blue);
+}
+.card::before {
+    left: -8px;
+}
+.card::after {
+    right: -8px;
+}
+#bg-dark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: var(--Very-dark-mostly-black-blue);
+    border-radius: 6px 6px 0 0;
+    opacity: 0.5;
+}
+.flip-card {
+    animation-name: flip-card;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#indicator {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    letter-spacing: 5px;
+    color: var(--Grayish-blue);
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.social-media {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    list-style: none;
+}
+
+@media screen and (min-width: 1440px) {
+    .app {
+        background-size: contain;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .container {
+        box-sizing: border-box;
+        padding: 0 30px;
+    }
+}
